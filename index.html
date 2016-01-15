@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+        <style>
+            body { padding-top: 50px; }
+            form { margin-bottom: 50px; }
+        </style>
+
+        <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+        <script src="app.js"></script>
+    </head>
+
+    <body ng-app="formApp" ng-controller="formController">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+
+            <h2>Angular Checkboxes and Radio Buttons</h2>
+
+            <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+                <!-- NAME INPUT -->
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="name" ng-model="formData.name" required>
+                </div>
+
+                <!-- MULTIPLE CHECKBOXES -->
+                <label>Favorite Colors</label>
+                <div class="form-group">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="favoriteColors" ng-model="formData.favoriteColors.red"> Red
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="favoriteColors" ng-model="formData.favoriteColors.blue"> Blue
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="favoriteColors" ng-model="formData.favoriteColors.green"> Green
+                    </label>
+                </div>
+
+                <!-- CUSTOM VALUE CHECKBOXES -->
+                <label>Personal Questions</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="awesome" ng-model="formData.awesome" ng-true-value="ofCourse" ng-false-value="iWish">
+                        Are you awesome?
+                    </label>
+                </div>
+                
+                <!-- RADIO BUTTONS -->
+                <label>Chicken or the Egg?</label>
+                <div class="form-group">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="chickenEgg" value="chicken" ng-model="formData.chickenEgg">
+                            Chicken
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="chickenEgg" value="egg" ng-model="formData.chickenEgg">
+                            Egg
+                        </label>
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="btn btn-danger btn-lg">Send Away!</button>
+            </form>
+
+            <!-- DISPLAY FORMDATA OBJECT HERE -->
+            <h2>Sample Form Object</h2>
+            <pre>
+                {{ formData }}
+            </pre>
+
+        </div>
+        
+    </body>
+</html>
